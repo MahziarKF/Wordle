@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     socket.on("wordSent", ({ word }) => {
       setWord(word);
-      console.log(word);
     });
     return () => {
       socket.disconnect();
@@ -22,7 +21,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log("counts : ", guessCount);
     if (guessCount == 0) {
       setState("lost");
     }
